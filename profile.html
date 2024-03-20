@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #ff0000;
+  }
+
+.manage-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profile-info input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-save, .btn-exit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-exit {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-save:hover, .btn-exit:hover {
+    background-color: #0056b3;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #ff7f7f, #ff0000); 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+</style>
+<body>
+    <div class="container container-border">
+    <div class="manage-profile-container">
+        <img class="profile-img" src="imagem.jpg" alt="Imagem de perfil">
+        <div class="profile-info">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" value="Pedro">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" value="">
+        </div>
+        <div class="button-container">
+            <button class="btn-save" onclick="saveChanges()">Salvar Alterações</button>
+            <a href="Home.html"><button class="btn-exit">Sair</button></a>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+</html>

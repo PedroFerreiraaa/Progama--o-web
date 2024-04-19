@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - CLIMED</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .user-greeting {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+        }
+
+        .options a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+
+        .options a:hover {
+            background-color: #0056b3;
+        }
+
+        .specialties-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .specialty {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(25% - 20px);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .specialty:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialty h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .specialty-description {
+            display: none;
+        }
+
+        .specialty-description p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .task-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .task-form input,
+        .task-form select {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .task-form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .task-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .appointments-table {
+            margin-top: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="user-info">
+            <img src="C:\Users\Duarte\Desktop\foto1.jpg" alt="Foto do Usuário" class="profile-img">
+            <div class="user-greeting">Olá, Hugo</div>
+        </div>
+        <div class="options">
+            <a href="#" class="btn edit-profile-btn" data-toggle="modal" data-target="#editarPerfilModal">Editar Perfil</a>
+            <a href="#" class="btn logout-btn">Terminar Sessão</a>
+        </div>
+    </div>
+
+    <div class="box specialties-container">
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Pediatria</h3>
+            <div class="specialty-description">
+                <p>Atendimento especializado em saúde infantil, acompanhando o desenvolvimento físico, emocional e social das crianças.</p>
+            </div>
+        </div>
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Dermatologia</h3>
+            <div class="specialty-description">
+                <p>Especialidade médica que trata das doenças relacionadas à pele, cabelos e unhas, bem como problemas estéticos.</p>
+            </div>
+        </div>
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Ortopedia</h3>
+            <div class="specialty-description">
+                <p>Ramo da medicina que trata lesões e doenças relacionadas ao sistema musculoesquelético, como ossos, músculos, ligamentos e articulações.</p>
+            </div>
+        </div>
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Cardiologia</h3>
+            <div class="specialty-description">
+                <p>Especialidade médica que se dedica ao diagnóstico e tratamento de doenças relacionadas ao coração e sistema cardiovascular.</p>
+            </div>
+        </div>
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Oftalmologia</h3>
+            <div class="specialty-description">
+                <p>Especialidade médica que trata das doenças relacionadas aos olhos e ao sistema visual, incluindo prescrição de óculos e cirurgias oculares.</p>
+            </div>
+        </div>
+        <div class="specialty" onclick="toggleDescription(this)">
+            <h3>Otorrinolaringologia</h3>
+            <div class="specialty-description">
+                <p>Especialidade médica que trata das doenças relacionadas ao ouvido, nariz, garganta e estruturas relacionadas, incluindo cirurgias como amigdalectomia e timpanoplastia.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Agende sua consulta</h2>
+        <form class="task-form" id="appointmentForm">
+            <input type="text" name="patientName" placeholder="Seu Nome" required>
+            <select name="specialtyName" required>
+                <option value="" disabled selected>Escolher Especialidade</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Dermatologia">Dermatologia</option>
+                <option value="Ortopedia">Ortopedia</option>
+                <option value="Cardiologia">Cardiologia</option>
+                <option value="Oftalmologia">Oftalmologia</option>
+                <option value="Otorrinolaringologia">Otorrinolaringologia</option>
+            </select>
+            <input type="datetime-local" name="appointmentDate" required>
+            <button type="submit" class="btn btn-primary">Agendar Consulta</button>
+        </form>
+    </div>
+
+    <div class="box appointments-table">
+        <h2>Consultas Agendadas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Especialidade</th>
+                    <th>Data e Hora</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentsTableBody">
+            
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div class="modal fade" id="editarPerfilModal" tabindex="-1" role="dialog" aria-labelledby="editarPerfilModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarPerfilModalLabel">Editar Perfil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Novo Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Novo email">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Nova Senha</label>
+                            <input type="password" class="form-control" id="senha" placeholder="Nova senha">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="modal fade" id="appointmentConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="appointmentConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentConfirmationModalLabel">Consulta Agendada</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Sua consulta foi agendada com sucesso!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function toggleDescription(element) {
+        const description = element.querySelector('.specialty-description');
+        description.style.display = description.style.display === "none" ? "block" : "none";
+    }
+
+    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const appointmentData = {};
+        formData.forEach(function(value, key) {
+            appointmentData[key] = value;
+        });
+        console.log(appointmentData); 
+        $('#appointmentConfirmationModal').modal('show');
+        this.reset();
+        appendAppointmentToTable(appointmentData);
+    });
+
+    function appendAppointmentToTable(data) {
+        const tableBody = document.getElementById('appointmentsTableBody');
+        const row = tableBody.insertRow();
+        const patientCell = row.insertCell(0);
+        const specialtyCell = row.insertCell(1);
+        const dateCell = row.insertCell(2);
+        patientCell.innerHTML = data.patientName;
+        specialtyCell.innerHTML = data.specialtyName;
+        dateCell.innerHTML = data.appointmentDate;
+    }
+
+    document.querySelector('.logout-btn').addEventListener('click', function() {
+        window.location.href = 'pagina_inicial.html';
+    });
+</script>
+</body>
+</html>

@@ -1,133 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIMED</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f2f2f2;
+        }
 
-    .container {
-      max-width: 400px;
-      margin: 100px auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      border: 2px solid #ff0000;
-    }
+        .form-container {
+            text-align: center;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+        }
 
-    .logo {
-      margin-bottom: 20px;
-    }
+        form input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 200px;
+        }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="checkbox"] {
-      width: 100%;
-      padding: 12px;
-      margin: 8px ;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
+        form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    input[type="checkbox"]:checked + label {
-      font-weight: bold;
-      color: #4caf50;
-    }
+        form button:hover {
+            background-color: #45a049;
+        }
 
-    input[type="submit"] {
-      width: 100%;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        
+        .back-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
 
-    input[type="submit"]:hover {
-      background-color: #ccc;
-    }
+        .back-button:hover {
+            background-color: #45a049;
+        }
 
-    .back-button {
-      margin-top: 20px;
-    }
+        .terms-link {
+            font-size: 14px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
 
-    .back-button a {
-      display: inline-block;
-      text-decoration: none;
-      color: #333;
-      padding: 14px 20px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      margin-bottom: 10px;
-    }
+        .terms-link:hover {
+            text-decoration: underline;
+        }
 
-    .back-button a:hover {
-      background-color: #e8e8e8;
-    }
+        .terms-container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .password-container {
-      position: relative;
-    }
-
-    .show-password {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-  </style>
+        
+        #terms {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img class="logo" src="logo.png" alt="Logo">
-    <form action="#" method="post">
-      <input type="text" name="name" placeholder="Username" required>
-      <br>
-      <input type="email" name="email" placeholder="Email" required>
-      <br>
-      <div class="password-container">
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <span class="show-password" onclick="togglePassword()"></span>
-      </div>
-      
-      <input type="password"
-      name="confirm_password" placeholder="Confirm Password" required>
-      <br>
-      <input type="checkbox" name="agree" id="agree" required>
-      <label for="agree">I agree to the Terms of Use and Privacy Policy</label>
-      <br>
-      <input type="submit" value="Register">
-    </form>
-    <div class="back-button">
-      <a href="inicial.html">Back</a>
+    <div class="form-container">
+        <h2>CLIMED</h2>
+        <form>
+            <input type="text" name="name" placeholder="Nome" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Senha" required><br>
+            <input type="password" name="confirm_password" placeholder="Confirmar Senha" required><br>
+            <div class="terms-container">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">Concordo com os <a href="termos_de_uso.html" class="terms-link" target="_blank">termos de uso</a> e <a href="politica_de_privacidade.html" class="terms-link" target="_blank">política de privacidade</a></label>
+            </div>
+            
+            <button type="button" onclick="redirect()">Registrar</button>
+        </form>
     </div>
-  </div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="pagina_inicial.html" class="back-button">Voltar para o Menu Inicial</a>
+    </div>
 
-  <script>
-    function togglePassword() {
-      var passwordInput = document.getElementById("password");
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-      } else {
-        passwordInput.type = "password";
-      }
-    }
-  </script>
+    <script>
+        function redirect() {
+            
+            window.location.href = 'clinicamedica.html';
+        }
+    </script>
 </body>
 </html>
-
-
-
-

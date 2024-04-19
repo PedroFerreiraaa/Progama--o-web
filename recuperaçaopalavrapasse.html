@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CLIMED</title>
+    <title>Recuperação de Senha - CLIMED</title>
     <style>
         body, html {
             height: 100%;
@@ -32,7 +32,7 @@
         form button {
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #4CAF50; 
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -40,11 +40,11 @@
         }
 
         form button:hover {
-            background-color: #45a049;
+            background-color: #45a049; 
         }
-
+        
         .back-button {
-            background-color: #4CAF50;
+            background-color: #4CAF50; 
             color: #fff;
             padding: 10px 20px;
             text-decoration: none;
@@ -54,31 +54,20 @@
         }
 
         .back-button:hover {
-            background-color: #45a049;
+            background-color: #45a049; 
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2>Login - CLIMED</h2>
-        <form action="login.php" method="POST">
+        <h2>Recuperação de Senha - CLIMED</h2>
+        <form action="forgot_password.php" method="POST">
             <input type="email" name="email" placeholder="Email" required><br>
-            <input type="password" name="password" placeholder="Senha" required><br>
-            <button type="submit">Login</button>
+            <button type="submit">Enviar</button>
         </form>
-    </div>
-    
+    </div>    
     <div style="text-align: center; margin-top: 20px;">
-       
         <a href="pagina_inicial.html" class="back-button">Voltar para o Menu Inicial</a>
     </div>
-
-    <script>
-      
-        document.querySelector('form button').addEventListener('click', function() {
-        
-            window.location.href = 'clinicamedica.html';
-        });
-    </script>
 </body>
 </html>
